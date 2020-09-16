@@ -2,28 +2,37 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
-import { Badge, Button, Icon } from "native-base";
+import { Badge } from "native-base";
+import { IconButton } from "react-native-paper";
 
 const Header = (props) => {
   return (
     <View style={styles.header}>
       <View style={styles.row}>
-        <MaterialCommunityIcons
-          name="shape-circle-plus"
-          size={24}
-          color="black"
+        <IconButton
+          icon={() => (
+            <MaterialCommunityIcons
+              name="shape-circle-plus"
+              size={28}
+              color="black"
+            />
+          )}
+          onPress={() => {}}
         />
         <Text style={styles.headerTitle}>Instagram</Text>
-        <Button
-          badge
-          vertical
-          style={{ backgroundColor: "transparent", elevation: 0 }}
-        >
-          <Badge>
-            <Text>2</Text>
+
+        <View>
+          <Badge style={styles.badge}>
+            <Text style={styles.badgeText}>2</Text>
           </Badge>
-          <Feather name="message-circle" size={24} color="black" />
-        </Button>
+          <IconButton
+            icon={() => (
+              <Feather name="message-circle" size={28} color="black" />
+            )}
+            onPress={() => {}}
+            style={{ transform: [{ rotateY: "180deg" }] }}
+          />
+        </View>
       </View>
     </View>
   );
@@ -45,7 +54,19 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontFamily: "Billabong",
-    fontSize: 32,
+    fontSize: 36,
+  },
+  badge: {
+    zIndex: 1,
+    marginLeft: 25,
+    marginBottom: -23,
+    borderRadius: 10,
+    height: 20,
+    backgroundColor: "#DD2A7B",
+  },
+  badgeText: {
+    color: "#fff",
+    fontWeight: "bold",
   },
 });
 export default Header;

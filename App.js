@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import { Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 import Contacts from "./components/Contacts";
+import Timeline from "./components/Timeline";
 
 const loadFonts = async () =>
   await Font.loadAsync({
@@ -29,6 +30,7 @@ const App = () => {
       <StatusBar style="auto" />
       <Header />
       <Contacts />
+      <Timeline />
     </View>
   );
 };
@@ -37,7 +39,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
     paddingTop: 50,
   },
 });

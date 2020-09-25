@@ -8,8 +8,8 @@ const AvatarStory = (props) => {
       <LinearGradient
         colors={
           (props.index === 0 && ["#e8e8e8", "#e8e8e8"]) || [
-            "#F60B7D",
-            "#7D1FAA",
+            "#FC0B7B",
+            "#7820AD",
           ]
         }
         start={[0, 0.3]}

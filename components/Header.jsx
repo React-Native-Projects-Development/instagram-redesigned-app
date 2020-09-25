@@ -4,19 +4,15 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { Badge } from "native-base";
 import { IconButton } from "react-native-paper";
+import AddStoryIcon from "./Icons/AddStoryIcon";
+import ChatIcon from "./Icons/ChatIcon";
 
 const Header = (props) => {
   return (
     <View style={styles.header}>
       <View style={styles.row}>
         <IconButton
-          icon={() => (
-            <MaterialCommunityIcons
-              name="shape-circle-plus"
-              size={28}
-              color="black"
-            />
-          )}
+          icon={() => <AddStoryIcon height={24} width={24} color="#000" />}
           onPress={() => {}}
         />
         <Text style={styles.headerTitle}>Instagram</Text>
@@ -26,11 +22,8 @@ const Header = (props) => {
             <Text style={styles.badgeText}>2</Text>
           </Badge>
           <IconButton
-            icon={() => (
-              <Feather name="message-circle" size={28} color="black" />
-            )}
+            icon={() => <ChatIcon height={24} width={24} color="#000" />}
             onPress={() => {}}
-            style={{ transform: [{ rotateY: "180deg" }] }}
           />
         </View>
       </View>

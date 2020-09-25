@@ -1,8 +1,14 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { FontAwesome5, AntDesign } from "@expo/vector-icons";
+import { FontAwesome5, AntDesign, Feather } from "@expo/vector-icons";
 
 import { SliderBox } from "react-native-image-slider-box";
+import { IconButton } from "react-native-paper";
+import SendIcon from "../Icons/SendIcon";
+import OptionsIcon from "../Icons/OptionsIcon";
+import LikeIcon from "../Icons/LikeIcon";
+import HeartIcon from "../Icons/HeartIcon";
+import ChatIcon from "../Icons/ChatIcon";
 
 const Card = (props) => {
   const images = [
@@ -47,16 +53,29 @@ const Card = (props) => {
               },
             ]}
           >
-            <View style={{ marginHorizontal: 5 }}>
-              <FontAwesome5 name="telegram-plane" size={24} color="#969696" />
+            <View
+              style={{
+                marginHorizontal: 5,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <SendIcon width={26} height={26} />
             </View>
-            <View style={{ marginHorizontal: 5 }}>
-              <AntDesign name="sharealt" size={24} color="#969696" />
+            <View
+              style={{
+                marginHorizontal: 5,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <OptionsIcon width={20} height={20} />
             </View>
           </View>
         </View>
         {/* Card Header */}
 
+        {/* Card Body */}
         <View
           style={{
             width: "100%",
@@ -67,14 +86,101 @@ const Card = (props) => {
             borderWidth: 1,
             borderRadius: 15,
             overflow: "hidden",
+            position: "relative",
           }}
         >
+          <View
+            style={{
+              position: "absolute",
+              zIndex: 2,
+              backgroundColor: "#D8167A",
+              padding: 15,
+              borderRadius: 50,
+              height: 50,
+              width: 50,
+              top: 260,
+              left: 25,
+              alignItems: "center",
+            }}
+          >
+            <HeartIcon width={24} height={24} />
+          </View>
+          <View
+            style={{
+              position: "absolute",
+              zIndex: 2,
+              backgroundColor: "rgba(169,168,170, 0.8)",
+              padding: 15,
+              borderRadius: 50,
+              height: 30,
+              width: 70,
+              top: 270,
+              left: 85,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text>4,558</Text>
+          </View>
+
+          <View
+            style={{
+              position: "absolute",
+              zIndex: 2,
+              backgroundColor: "rgba(0,0,0, 0.3)",
+              padding: 15,
+              borderRadius: 50,
+              height: 30,
+              width: 70,
+              top: 20,
+              left: 260,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ color: "#fff" }}>1/6</Text>
+          </View>
+          <View
+            style={{
+              position: "absolute",
+              zIndex: 2,
+              backgroundColor: "#fff",
+              padding: 15,
+              borderRadius: 50,
+              height: 40,
+              width: 40,
+              top: 265,
+              left: 275,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <IconButton
+              icon={() => <ChatIcon width={24} height={24} color="#000" />}
+              onPress={() => {}}
+            />
+          </View>
           <SliderBox
             images={images}
-            sliderBoxHeight={350}
-            parentWidth={350}
             resizeMode="cover"
+            ImageComponentStyle={{
+              borderRadius: 15,
+              width: "100%",
+              height: "100%",
+            }}
+            dotColor="#fff"
           />
+        </View>
+
+        {/* Card Footer */}
+
+        <View style={{ flexDirection: "row", paddingHorizontal: 10 }}>
+          <Text>
+            Les gusta a{" "}
+            <Text style={{ fontWeight: "bold" }}>
+              danieldelax y 4588 personas más
+            </Text>
+          </Text>
         </View>
       </View>
     </View>

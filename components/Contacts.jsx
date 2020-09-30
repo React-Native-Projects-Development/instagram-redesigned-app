@@ -24,7 +24,6 @@ const Contacts = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 10,
     height: 125,
   },
 });

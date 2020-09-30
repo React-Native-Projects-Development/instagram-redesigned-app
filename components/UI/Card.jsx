@@ -103,13 +103,13 @@ const Card = (props) => {
               alignItems: "center",
             }}
           >
-            <HeartIcon width={24} height={24} />
+            <LikeIcon width={24} height={24} color="#fff" />
           </View>
           <View
             style={{
               position: "absolute",
               zIndex: 2,
-              backgroundColor: "rgba(169,168,170, 0.8)",
+              backgroundColor: "rgba(112,112,112, 0.7)",
               padding: 15,
               borderRadius: 50,
               height: 30,

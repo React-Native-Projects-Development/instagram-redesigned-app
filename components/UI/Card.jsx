@@ -174,13 +174,51 @@ const Card = (props) => {
 
         {/* Card Footer */}
 
-        <View style={{ flexDirection: "row", paddingHorizontal: 10 }}>
-          <Text>
-            Les gusta a{" "}
-            <Text style={{ fontWeight: "bold" }}>
-              danieldelax y 4588 personas más
+        <View>
+          <View
+            style={{
+              flexDirection: "row",
+              paddingHorizontal: 10,
+              marginVertical: 2,
+            }}
+          >
+            <Text>
+              Les gusta a {""}
+              <Text style={{ fontWeight: "bold" }}>
+                danieldelax y 4557 personas más
+              </Text>
             </Text>
-          </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              paddingHorizontal: 10,
+              marginVertical: 2,
+            }}
+          >
+            <Text style={[{ fontWeight: "bold" }]}>FREE | PEACE </Text>
+            <Text style={[{ marginLeft: 5 }]}>My ideals</Text>
+            <Text></Text>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              paddingHorizontal: 10,
+              marginVertical: 2,
+            }}
+          >
+            <Text style={[{ color: "#D5D5D5" }]}>Ver los 500 comentarios</Text>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              paddingHorizontal: 10,
+              marginVertical: 2,
+            }}
+          >
+            <Text style={[{ fontWeight: "bold" }]}>perla_nomade</Text>
+            <Text style={[{ marginLeft: 5 }]}>Increible!</Text>
+          </View>
         </View>
       </View>
     </View>
@@ -194,7 +232,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   cardContainer: {
-    height: 500,
+    flex: 1,
     width: "90%",
     marginVertical: 10,
     backgroundColor: "#fff",

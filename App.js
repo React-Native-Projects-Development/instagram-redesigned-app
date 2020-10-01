@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
-import Header from "./components/Header";
 import { Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
-import Contacts from "./components/Contacts";
-import Timeline from "./components/Timeline";
-import Footer from "./components/Footer";
-import SearchBar from "./components/SearchBar";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { MyStack } from "./navigation/AppNavigator";
 
 const loadFonts = async () =>
   await Font.loadAsync({
@@ -30,11 +28,9 @@ const App = () => {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Header />
-      <Contacts />
-      <SearchBar />
-      <Timeline />
-      <Footer />
+      <NavigationContainer>
+        <MyStack />
+      </NavigationContainer>
     </View>
   );
 };
@@ -44,7 +40,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F5F6FA",
     paddingTop: 50,
-    alignItems: "center",
   },
 });
 

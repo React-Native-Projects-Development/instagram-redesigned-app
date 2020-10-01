@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import HeartIcon from "./Icons/HeartIcon";
@@ -7,7 +7,7 @@ import HomeIcon from "./Icons/HomeIcon";
 import IGIcon from "./Icons/IGIcon";
 import SearchIcon from "./Icons/Search";
 
-const Footer = (props) => {
+const Footer = ({ navigation }) => {
   return (
     <View style={[styles.screen]}>
       <View
@@ -27,21 +27,26 @@ const Footer = (props) => {
           alignItems: "center",
         }}
       >
-        <View
+        <TouchableOpacity
+          activeOpacity={0.6}
           style={[
             { width: "20%", alignItems: "center", justifyContent: "center" },
           ]}
+          onPress={() => navigation.navigate("Home")}
         >
           <HomeIcon width={20} height={20} />
-        </View>
-        <View
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.6}
           style={[
             { width: "20%", alignItems: "center", justifyContent: "center" },
           ]}
+          onPress={() => navigation.navigate("Discover")}
         >
           <SearchIcon width={20} height={20} color="#909090" />
-        </View>
-        <View
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.6}
           style={[
             {
               width: "20%",
@@ -49,6 +54,7 @@ const Footer = (props) => {
               justifyContent: "center",
             },
           ]}
+          // onPress={() => navigation.navigate("Home")}
         >
           <LinearGradient
             colors={["#FC0B7B", "#7820AD"]}
@@ -66,15 +72,18 @@ const Footer = (props) => {
           >
             <IGIcon width={35} height={35} />
           </LinearGradient>
-        </View>
-        <View
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.6}
           style={[
             { width: "20%", alignItems: "center", justifyContent: "center" },
           ]}
+          // onPress={() => navigation.navigate("Home")}
         >
           <HeartIcon width={20} height={20} color="#909090" />
-        </View>
-        <View
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.6}
           style={[
             {
               width: "20%",
@@ -82,6 +91,7 @@ const Footer = (props) => {
               justifyContent: "center",
             },
           ]}
+          // onPress={() => navigation.navigate("Home")}
         >
           <View
             style={[
@@ -101,7 +111,7 @@ const Footer = (props) => {
               style={{ height: "100%", width: "100%" }}
             />
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

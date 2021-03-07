@@ -1,4 +1,4 @@
-import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient/build/LinearGradient";
 import React from "react";
 import { View, Text, StyleSheet, FlatList, Image } from "react-native";
 import Footer from "../components/Footer";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient/build/LinearGradient";
 
 const AvatarStory = (props) => {
   return (
@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
   avatarContainer: {
     marginHorizontal: 5,
     borderWidth: 1,
-    height: 60,
-    width: 60,
+    height: 75,
+    width: 75,
     borderRadius: 50,
     borderColor: "#E8E8E8",
   },

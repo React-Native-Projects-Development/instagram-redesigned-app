@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient/build/LinearGradient";
 
 import HeartIcon from "./Icons/HeartIcon";
 import HomeIcon from "./Icons/HomeIcon";
@@ -43,7 +43,7 @@ const Footer = ({ navigation }) => {
           ]}
           onPress={() => navigation.navigate("Discover")}
         >
-          <SearchIcon width={20} height={20} color='#909090' />
+          <SearchIcon width={20} height={20} color="#909090" />
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.6}
@@ -80,7 +80,7 @@ const Footer = ({ navigation }) => {
           ]}
           // onPress={() => navigation.navigate("Home")}
         >
-          <HeartIcon width={20} height={20} color='#909090' />
+          <HeartIcon width={20} height={20} color="#909090" />
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.6}

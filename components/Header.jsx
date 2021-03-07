@@ -7,10 +7,10 @@ import ChatIcon from "./Icons/ChatIcon";
 
 const Header = (props) => {
   return (
-    <View style={[styles.header, { marginTop: StatusBar.currentHeight }]}>
+    <View style={[styles.header, { marginTop: StatusBar.currentHeight + 20 }]}>
       <View style={styles.row}>
         <IconButton
-          icon={() => <AddStoryIcon height={24} width={24} color='#000' />}
+          icon={() => <AddStoryIcon height={24} width={24} color="#000" />}
           onPress={() => {}}
         />
         <Text style={styles.headerTitle}>Instagram</Text>
@@ -20,7 +20,7 @@ const Header = (props) => {
             <Text style={styles.badgeText}>2</Text>
           </Badge>
           <IconButton
-            icon={() => <ChatIcon height={22} width={22} color='#000' />}
+            icon={() => <ChatIcon height={22} width={22} color="#000" />}
             onPress={() => {}}
           />
         </View>

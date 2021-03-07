@@ -1,7 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
+import { View, Text, StyleSheet, StatusBar } from "react-native";
 import { Badge } from "native-base";
 import { IconButton } from "react-native-paper";
 import AddStoryIcon from "./Icons/AddStoryIcon";
@@ -9,10 +7,10 @@ import ChatIcon from "./Icons/ChatIcon";
 
 const Header = (props) => {
   return (
-    <View style={styles.header}>
+    <View style={[styles.header, { marginTop: StatusBar.currentHeight }]}>
       <View style={styles.row}>
         <IconButton
-          icon={() => <AddStoryIcon height={24} width={24} color="#000" />}
+          icon={() => <AddStoryIcon height={24} width={24} color='#000' />}
           onPress={() => {}}
         />
         <Text style={styles.headerTitle}>Instagram</Text>
@@ -22,7 +20,7 @@ const Header = (props) => {
             <Text style={styles.badgeText}>2</Text>
           </Badge>
           <IconButton
-            icon={() => <ChatIcon height={24} width={24} color="#000" />}
+            icon={() => <ChatIcon height={22} width={22} color='#000' />}
             onPress={() => {}}
           />
         </View>
@@ -33,7 +31,6 @@ const Header = (props) => {
 
 const styles = StyleSheet.create({
   header: {
-    height: 75,
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
@@ -55,11 +52,15 @@ const styles = StyleSheet.create({
     marginBottom: -23,
     borderRadius: 10,
     height: 20,
+    width: 20,
     backgroundColor: "#DD2A7B",
+    justifyContent: "center",
+    alignItems: "center",
   },
   badgeText: {
     color: "#fff",
     fontWeight: "bold",
+    fontSize: 10,
   },
 });
 export default Header;

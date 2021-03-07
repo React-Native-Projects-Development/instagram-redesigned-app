@@ -14,7 +14,7 @@ const Footer = ({ navigation }) => {
         style={{
           width: "100%",
           backgroundColor: "#fff",
-          height: 75,
+          height: 60,
           borderTopColor: "rgba(0,0,0,0.05)",
           borderTopWidth: 2,
           borderLeftWidth: 1,
@@ -43,7 +43,7 @@ const Footer = ({ navigation }) => {
           ]}
           onPress={() => navigation.navigate("Discover")}
         >
-          <SearchIcon width={20} height={20} color="#909090" />
+          <SearchIcon width={20} height={20} color='#909090' />
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.6}
@@ -60,8 +60,8 @@ const Footer = ({ navigation }) => {
             colors={["#FC0B7B", "#7820AD"]}
             style={[
               {
-                width: 80,
-                height: 80,
+                width: 60,
+                height: 60,
                 borderRadius: 40,
                 position: "absolute",
                 bottom: -10,
@@ -80,7 +80,7 @@ const Footer = ({ navigation }) => {
           ]}
           // onPress={() => navigation.navigate("Home")}
         >
-          <HeartIcon width={20} height={20} color="#909090" />
+          <HeartIcon width={20} height={20} color='#909090' />
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.6}
@@ -96,8 +96,8 @@ const Footer = ({ navigation }) => {
           <View
             style={[
               {
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
                 borderRadius: 20,
                 overflow: "hidden",
               },

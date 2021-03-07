@@ -27,7 +27,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar style='auto' />
       <NavigationContainer>
         <MyStack />
       </NavigationContainer>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F5F6FA",
-    paddingTop: 50,
+    // paddingTop: 50,
   },
 });
 

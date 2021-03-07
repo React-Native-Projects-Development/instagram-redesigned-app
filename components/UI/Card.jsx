@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { FontAwesome5, AntDesign, Feather } from "@expo/vector-icons";
 
@@ -20,14 +20,16 @@ const Card = (props) => {
     "https://res.cloudinary.com/bgarcia95/image/upload/v1600222963/ig-enhanced-tl-pics/tl-6_mtwoky.png",
   ];
 
+  const [currentImageIdx, setCurrentIdx] = useState(1);
+
   return (
     <View style={styles.screen}>
       <View style={styles.cardContainer}>
         <View style={styles.cardHeader}>
           <View
             style={{
-              width: 60,
-              height: 60,
+              width: 40,
+              height: 40,
               borderRadius: 40,
               overflow: "hidden",
             }}
@@ -38,10 +40,10 @@ const Card = (props) => {
             />
           </View>
           <View style={{ marginLeft: 10 }}>
-            <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+            <Text style={{ fontSize: 12, fontWeight: "bold" }}>
               {props.user}
             </Text>
-            <Text style={{ color: "#969696" }}>Hace 20 min</Text>
+            <Text style={{ color: "#969696", fontSize: 10 }}>Hace 20 min</Text>
           </View>
           <View
             style={[
@@ -60,7 +62,7 @@ const Card = (props) => {
                 alignItems: "center",
               }}
             >
-              <SendIcon width={26} height={26} />
+              <SendIcon width={20} height={20} />
             </View>
             <View
               style={{
@@ -69,7 +71,7 @@ const Card = (props) => {
                 alignItems: "center",
               }}
             >
-              <OptionsIcon width={20} height={20} />
+              <OptionsIcon width={15} height={15} />
             </View>
           </View>
         </View>
@@ -79,7 +81,7 @@ const Card = (props) => {
         <View
           style={{
             width: "100%",
-            height: 350,
+            height: 200,
             marginVertical: 10,
             alignItems: "center",
             borderColor: "#e8e8e8",
@@ -94,33 +96,34 @@ const Card = (props) => {
               position: "absolute",
               zIndex: 2,
               backgroundColor: "#D8167A",
-              padding: 15,
-              borderRadius: 50,
-              height: 50,
-              width: 50,
-              top: 260,
-              left: 25,
+              paddingHorizontal: 15,
+              borderRadius: 20,
+              height: 35,
+              width: 35,
+              bottom: 30,
+              left: 10,
               alignItems: "center",
-            }}
-          >
-            <LikeIcon width={24} height={24} color="#fff" />
-          </View>
-          <View
-            style={{
-              position: "absolute",
-              zIndex: 2,
-              backgroundColor: "rgba(112,112,112, 0.7)",
-              padding: 15,
-              borderRadius: 50,
-              height: 30,
-              width: 70,
-              top: 270,
-              left: 85,
               justifyContent: "center",
-              alignItems: "center",
             }}
           >
-            <Text>4,558</Text>
+            <LikeIcon width={20} height={20} color='#fff' />
+
+            <View
+              style={{
+                position: "absolute",
+                zIndex: 2,
+                backgroundColor: "rgba(112,112,112, 0.7)",
+                paddingHorizontal: 10,
+                borderRadius: 50,
+                height: 30,
+                width: 70,
+                right: -75,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ fontSize: 12 }}>4,558</Text>
+            </View>
           </View>
 
           <View
@@ -128,17 +131,19 @@ const Card = (props) => {
               position: "absolute",
               zIndex: 2,
               backgroundColor: "rgba(0,0,0, 0.3)",
-              padding: 15,
               borderRadius: 50,
               height: 30,
-              width: 70,
+              paddingVertical: 5,
+              paddingHorizontal: 10,
               top: 20,
-              left: 260,
+              right: 5,
               justifyContent: "center",
               alignItems: "center",
             }}
           >
-            <Text style={{ color: "#fff" }}>1/6</Text>
+            <Text style={{ color: "#fff", fontSize: 12 }}>
+              {`${currentImageIdx}/${images.length}`}
+            </Text>
           </View>
           <View
             style={{
@@ -156,19 +161,20 @@ const Card = (props) => {
             }}
           >
             <IconButton
-              icon={() => <ChatIcon width={24} height={24} color="#000" />}
+              icon={() => <ChatIcon width={24} height={24} color='#000' />}
               onPress={() => {}}
             />
           </View>
           <SliderBox
             images={images}
-            resizeMode="cover"
+            resizeMode='contain'
             ImageComponentStyle={{
               borderRadius: 15,
               width: "100%",
               height: "100%",
             }}
-            dotColor="#fff"
+            dotColor='#fff'
+            currentImageEmitter={(idx) => setCurrentIdx(idx + 1)}
           />
         </View>
 
@@ -241,8 +247,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     overflow: "hidden",
     elevation: 2,
-    paddingVertical: 20,
-    paddingHorizontal: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 5,
   },
   cardHeader: {
     flexDirection: "row",

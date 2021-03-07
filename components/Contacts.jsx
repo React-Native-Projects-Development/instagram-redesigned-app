@@ -16,7 +16,8 @@ const Contacts = (props) => {
           />
         )}
         horizontal
-        contentContainerStyle={{ paddingHorizontal: 10 }}
+        contentContainerStyle={{ paddingHorizontal: 10, flexGrow: 1 }}
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   );
@@ -24,7 +25,7 @@ const Contacts = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 125,
+    height: 100,
   },
 });
 

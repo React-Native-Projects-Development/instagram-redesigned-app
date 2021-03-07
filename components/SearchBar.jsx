@@ -9,8 +9,8 @@ const SearchBar = (props) => {
         {
           flexDirection: "row",
           justifyContent: "space-between",
-          height: "5%",
-          marginVertical: 10,
+          alignItems: "center",
+          marginVertical: 5,
           width: "90%",
         },
       ]}
@@ -24,7 +24,7 @@ const SearchBar = (props) => {
           },
         ]}
       >
-        <Text style={{ marginLeft: 10, fontWeight: "bold", fontSize: 24 }}>
+        <Text style={{ marginLeft: 10, fontWeight: "bold", fontSize: 20 }}>
           Explorar
         </Text>
       </View>
@@ -37,10 +37,11 @@ const SearchBar = (props) => {
             flex: 1,
             borderRadius: 26,
             paddingLeft: 20,
+            paddingVertical: 5,
           },
         ]}
       >
-        <SearchIcon width={20} height={20} color="#909090" />
+        <SearchIcon width={20} height={20} color='#909090' />
       </View>
     </View>
   );

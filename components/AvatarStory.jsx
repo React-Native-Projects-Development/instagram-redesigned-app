@@ -18,7 +18,6 @@ const AvatarStory = (props) => {
           styles.avatarContainer,
           props.index === 0 && { marginLeft: 15 },
           {
-            overflow: "hidden",
             alignItems: "center",
             justifyContent: "center",
           },
@@ -28,34 +27,37 @@ const AvatarStory = (props) => {
           source={{ uri: props.profilePicture }}
           style={styles.avatarImage}
         />
-      </LinearGradient>
-      {props.index === 0 && (
-        <View
-          style={{
-            height: 30,
-            width: 30,
-            marginTop: -15,
-            borderRadius: 20,
-            borderWidth: 3,
-            borderColor: "#e8e8e8",
-            overflow: "hidden",
-          }}
-        >
-          <LinearGradient
-            colors={["#F60B7D", "#7D1FAA"]}
-            start={[0, 0.1]}
-            end={[0, 0.75]}
+
+        {props.index === 0 && (
+          <View
             style={{
-              width: "100%",
-              height: "100%",
-              alignItems: "center",
-              justifyContent: "center",
+              height: 25,
+              width: 25,
+              borderRadius: 20,
+              borderWidth: 2,
+              borderColor: "#fff",
+              overflow: "hidden",
+              position: "absolute",
+              bottom: -15,
             }}
           >
-            <Text style={{ color: "#fff", fontSize: 18 }}>+</Text>
-          </LinearGradient>
-        </View>
-      )}
+            <LinearGradient
+              colors={["#F60B7D", "#7D1FAA"]}
+              start={[0, 0.1]}
+              end={[0, 0.75]}
+              style={{
+                width: "100%",
+                height: "100%",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: "#fff", fontSize: 18 }}>+</Text>
+            </LinearGradient>
+          </View>
+        )}
+      </LinearGradient>
+
       {props.index !== 0 && <Text style={styles.avatarText}>{props.user}</Text>}
     </View>
   );
@@ -66,14 +68,15 @@ const styles = StyleSheet.create({
   avatarContainer: {
     marginHorizontal: 5,
     borderWidth: 1,
-    height: 85,
-    width: 85,
+    height: 60,
+    width: 60,
     borderRadius: 50,
     borderColor: "#E8E8E8",
   },
   avatarText: {
     color: "#737476",
     marginVertical: 2,
+    fontSize: 10,
   },
   avatarImage: { width: "90%", height: "90%", borderRadius: 50 },
 });

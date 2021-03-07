@@ -153,7 +153,7 @@ const Card = (props) => {
         <View
           style={{
             width: "100%",
-            height: 200,
+            height: 300,
             marginVertical: 10,
             alignItems: "center",
             borderColor: "#e8e8e8",
@@ -223,16 +223,16 @@ const Card = (props) => {
               backgroundColor: "#fff",
               padding: 15,
               borderRadius: 50,
-              height: 40,
-              width: 40,
-              top: 265,
-              left: 275,
+              height: 35,
+              width: 35,
+              bottom: 30,
+              right: 30,
               justifyContent: "center",
               alignItems: "center",
             }}
           >
             <IconButton
-              icon={() => <ChatIcon width={24} height={24} color="#000" />}
+              icon={() => <ChatIcon width={20} height={20} color="#000" />}
               onPress={() => {}}
             />
           </View>
@@ -310,11 +310,11 @@ const MediaModal = ({ image, open, toggleModal }) => {
       onRequestClose={toggleModal}
       statusBarTranslucent
     >
-      <View style={{ padding: 20, backgroundColor: "rgba(0,0,0,0.75)" }}>
-        <ImageBackground
+      <View style={{ backgroundColor: "rgba(0,0,0,0.85)", padding: 10 }}>
+        <Image
           source={{ uri: image }}
           resizeMode="contain"
-          style={{ width: "100%", height: "100%" }}
+          style={{ borderRadius: 10, width: "100%", height: "100%" }}
         />
       </View>
     </Modal>

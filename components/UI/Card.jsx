@@ -1,16 +1,34 @@
-import React, { useState } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
-import { FontAwesome5, AntDesign, Feather } from "@expo/vector-icons";
+import React, { useRef, useState } from "react";
+import {
+  Dimensions,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  Modal,
+  ImageBackground,
+} from "react-native";
+import Carousel, { Pagination } from "react-native-snap-carousel";
 
-import { SliderBox } from "react-native-image-slider-box";
 import { IconButton } from "react-native-paper";
 import SendIcon from "../Icons/SendIcon";
 import OptionsIcon from "../Icons/OptionsIcon";
 import LikeIcon from "../Icons/LikeIcon";
-import HeartIcon from "../Icons/HeartIcon";
 import ChatIcon from "../Icons/ChatIcon";
 
 const Card = (props) => {
+  const carousel = useRef();
+  const { width } = Dimensions.get("window");
+  const sliderWidth = Math.round(width);
+  const itemWidth = Math.round(width);
+  const [openModal, setOpenModal] = useState(false);
+
+  const [imageUrl, setImageUrl] = useState("");
+
+  const toggleModal = () => setOpenModal((prevState) => !prevState);
+
   const images = [
     "https://res.cloudinary.com/bgarcia95/image/upload/v1600222966/ig-enhanced-tl-pics/tl-1_k7v6tl.png",
     "https://res.cloudinary.com/bgarcia95/image/upload/v1600222957/ig-enhanced-tl-pics/tl-2_e53gwr.jpg",
@@ -21,6 +39,60 @@ const Card = (props) => {
   ];
 
   const [currentImageIdx, setCurrentIdx] = useState(1);
+
+  const renderItem = ({ item }) => {
+    return (
+      <>
+        <Pressable
+          onPress={() => {
+            setOpenModal(true);
+            setImageUrl(item);
+          }}
+          style={{
+            backgroundColor: "transparent",
+            borderRadius: 5,
+            height: "100%",
+            width: "100%",
+            flex: 1,
+          }}
+        >
+          <Image
+            source={{
+              uri: item,
+            }}
+            style={{
+              height: "100%",
+              width: "100%",
+            }}
+          />
+        </Pressable>
+      </>
+    );
+  };
+
+  const pagination = () => {
+    return (
+      <Pagination
+        dotsLength={images.length}
+        activeDotIndex={currentImageIdx - 1}
+        containerStyle={{ position: "absolute", bottom: -15 }}
+        dotStyle={{
+          width: 8,
+          height: 8,
+          borderRadius: 5,
+          marginHorizontal: 8,
+          backgroundColor: "#fff",
+        }}
+        inactiveDotStyle={
+          {
+            // Define styles for inactive dots here
+          }
+        }
+        inactiveDotOpacity={0.4}
+        inactiveDotScale={0.6}
+      />
+    );
+  };
 
   return (
     <View style={styles.screen}>
@@ -106,7 +178,7 @@ const Card = (props) => {
               justifyContent: "center",
             }}
           >
-            <LikeIcon width={20} height={20} color='#fff' />
+            <LikeIcon width={20} height={20} color="#fff" />
 
             <View
               style={{
@@ -125,7 +197,6 @@ const Card = (props) => {
               <Text style={{ fontSize: 12 }}>4,558</Text>
             </View>
           </View>
-
           <View
             style={{
               position: "absolute",
@@ -161,21 +232,19 @@ const Card = (props) => {
             }}
           >
             <IconButton
-              icon={() => <ChatIcon width={24} height={24} color='#000' />}
+              icon={() => <ChatIcon width={24} height={24} color="#000" />}
               onPress={() => {}}
             />
           </View>
-          <SliderBox
-            images={images}
-            resizeMode='contain'
-            ImageComponentStyle={{
-              borderRadius: 15,
-              width: "100%",
-              height: "100%",
-            }}
-            dotColor='#fff'
-            currentImageEmitter={(idx) => setCurrentIdx(idx + 1)}
+          <Carousel
+            ref={carousel}
+            data={images}
+            renderItem={renderItem}
+            sliderWidth={sliderWidth}
+            itemWidth={itemWidth}
+            onSnapToItem={(index) => setCurrentIdx(index + 1)}
           />
+          {pagination()}
         </View>
 
         {/* Card Footer */}
@@ -227,7 +296,28 @@ const Card = (props) => {
           </View>
         </View>
       </View>
+
+      <MediaModal open={openModal} toggleModal={toggleModal} image={imageUrl} />
     </View>
+  );
+};
+
+const MediaModal = ({ image, open, toggleModal }) => {
+  return (
+    <Modal
+      visible={open}
+      transparent
+      onRequestClose={toggleModal}
+      statusBarTranslucent
+    >
+      <View style={{ padding: 20, backgroundColor: "rgba(0,0,0,0.75)" }}>
+        <ImageBackground
+          source={{ uri: image }}
+          resizeMode="contain"
+          style={{ width: "100%", height: "100%" }}
+        />
+      </View>
+    </Modal>
   );
 };
 

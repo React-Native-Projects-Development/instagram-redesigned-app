@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import * as Font from "expo-font";
-import { AppLoading } from "expo";
+import AppLoading from "expo-app-loading";
 import { Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 
@@ -17,17 +17,17 @@ const loadFonts = async () =>
   });
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const [isReady, setIsReady] = useState(false);
 
-  if (loading) {
+  if (!isReady) {
     return (
-      <AppLoading startAsync={loadFonts} onFinish={() => setLoading(false)} />
+      <AppLoading startAsync={loadFonts} onFinish={() => setIsReady(true)} onError={console.warn} />
     );
   }
 
   return (
     <View style={styles.container}>
-      <StatusBar style='auto' />
+      <StatusBar style='auto' translucent />
       <NavigationContainer>
         <MyStack />
       </NavigationContainer>
